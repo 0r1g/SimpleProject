@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Posts by {{ author }}</title>
+</head>
+<body>
+    <h1>Posts by {{ author }}</h1>
+    <br>
+    {% for post in posts %}
+        <h3>{{ post }}</h3>
+    {% if not forloop.last %}
+    <hr>
+    {% endif %}
+    {% endfor %}
+</body>
+</html>
