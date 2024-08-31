@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Post, Author
+from .models import Post, Author, Comment
 
 
 # Create your views here.
@@ -16,9 +16,11 @@ def index(request):
 
 def get_post(request, post_id):
     post = Post.objects.get(id=post_id)
+    comments = Comment.objects.filter(post_id=post_id)
 
     context = {
-        'post': post
+        'post': post,
+        'comments': comments
     }
     return render(request, 'blog/post.html', context)
 
